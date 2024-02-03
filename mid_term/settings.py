@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-$ud$cfs*pj)ew2iplrl)1+(31n)9+^*o4y8$gowy#(ud+fqp^!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ['https://car-sell-project.onrender.com','https://*.127.0.0.1']
 
 
 # Application definition
