@@ -1,0 +1,41 @@
+
+
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<div>
+    <a class="btn btn-primary mt-4" style="margin-left:40%" href="{% url "updateprofile" %}">Edit Profile</a>
+</div>
+
+<h1>My Cart : </h1>
+<div class="p-3">
+    <h4>Total Car Found : {{data.car.all | length}}</h4>
+    <div class="d-flex flex-wrap pt-5">
+      {% for car in data.car.all %}
+      <div class="col-sm-3">
+        <div class="card mx-2 my-2">
+          <div class="card-body">
+            <img
+              src="{{car.image.url}}"
+              class="card-img-top"
+              alt="{{car.car_name}}"
+            />
+            <br />
+            <h5>Car Name : {{car.car_name}}</h5>
+            <h5>Price : {{car.car_price}}</h5>
+            <h5>Brand Name : {{car.car_brand}}</h5>
+            <button class="btn btn-warning"><a class="text-decoration-none text-dark" href="{% url 'detailview' pk=car.id %}"><b>View Detail</b></a>
+            </button>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
