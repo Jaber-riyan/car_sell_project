@@ -41,6 +41,8 @@ class DetailViewOfCar(DetailView):
         if comment_form.is_valid():
             new_comment = comment_form.save(commit=False)
             new_comment.post = post
+            comment_form.instance.name = request.user.username
+            comment_form.instance.email = request.user.email
             new_comment.save()
         return self.get(request, *args, **kwargs)
 
